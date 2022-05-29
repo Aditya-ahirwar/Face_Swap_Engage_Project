@@ -3,6 +3,9 @@
 
 a web application which uses dlib and opencv to produce deepfake images by swapping the face of one image onto another.
 
+##Screenshots
+![App Screenshot]('https://drive.google.com/file/d/1EoffyJfD5-iZbmY0hqHAc8zVzC8lPYrg/view?usp=sharing')
+
 ## Dlib Installation
 
 To install Dlib we have to install cmake first
