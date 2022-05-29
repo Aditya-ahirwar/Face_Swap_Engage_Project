@@ -3,11 +3,14 @@
 
 a web application which uses dlib and opencv to produce deepfake images by swapping the face of one image onto another.
 
-
-## Screenshots
-![plot](./static/Example_image1.jpg)
-![plot](./static/Example_image2.jpg)
-![plot](./static/Example_result.jpg)
+## Image1: 
+  <img src="./static/Example_image1.jpg" height="300"/>
+  
+## Image2:
+  <img src="./static/Example_image2.jpg" height="300"/>
+  
+## Image Result:
+  <img height="300" src="./static/Example_result.jpg"/>
 
 ## Dlib Installation
 
