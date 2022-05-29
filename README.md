@@ -4,8 +4,9 @@
 a web application which uses dlib and opencv to produce deepfake images by swapping the face of one image onto another.
 
 ##Screenshots
-![Alt text]('https://github.com/Aditya-ahirwar/Face_Swap_Engage_Project/blob/master/static/Example_image1.jpg
-')
+![plot](./static/Example_image1.jpg)
+![plot](./static/Example_image2.jpg)
+![plot](./static/Example_result.jpg)
 
 ## Dlib Installation
 
