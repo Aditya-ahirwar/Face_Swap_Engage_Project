@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Swap</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'style.css') }}">
+    <!-- <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" /> -->
+
+</head>
+
+<body>
+    <div style="margin-top: 20px;margin-bottom : 10px; text-align:center;">
+        <h2>FaceSwap WebApp : Make deepfake Images</h2>
+    </div>
+    <nav>
+        <div class="nav-fostrap">
+            <ul>
+                <li>
+                    <a href="{{ url_for('home') }}" id="active">FaceSwap</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('instructions') }}">Instructions</a>
+                </li>
+            </ul>
+        </div>
+        <div class="nav-bg-fostrap">
+            <div class="navbar-fostrap"> <span></span> <span></span> <span></span> </div>
+            <a href="{{ url_for('home') }}" class="title-mobile">FaceSwap</a>
+        </div>
+    </nav>
+
+    <center>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                <div class="flashed_messages">
+                    {{ message }}
+                </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </center>
+    <br>
+    <div>
+        <form action="/swap" method="post" enctype="multipart/form-data">
+            <ul class="flex-container">
+                <li class="flex-item">
+                    <img src="" id="img1"/>
+                    <p>Main Image</p>
+                    <input type="file" name="file1" id="file1" class="upload-button" onchange="document.getElementById('img1').src = window.URL.createObjectURL(this.files[0])">
+                </li>
+                <li class="flex-item">
+                    <img src="" alt="" id="img2">
+                    <p>Secondary Image</p>
+                    <input name = " file2" id="file2" class="upload-button" type="file" onchange="document.getElementById('img2').src = window.URL.createObjectURL(this.files[0])">
+                </li>
+            </ul>
+            <div class="buttons">
+                <button class="button" id="clear">Clear</button>
+                <button name = "swap" class="button" id="swap">Swap</button>
+            </div>
+        </form>
+    </div>
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename ='index.js') }}"></script>
+
+</body>
+
+</html>

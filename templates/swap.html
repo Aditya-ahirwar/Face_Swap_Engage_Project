@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image comaparison</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'style.css') }}">
+    <!-- <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" /> -->
+</head>
+<body>
+    <div class = "heading">
+        <!-- style="margin-top: 20px;margin-bottom : 10px; text-align:center;"> -->
+        <h2>FaceSwap WebApp : Make deepfake Images</h2>
+    </div>
+    <nav> 
+        <div class="nav-fostrap">
+            <ul>
+                <li><a href="{{ url_for('home') }}" id="active">FaceSwap</a></li>
+                <li><a href="{{ url_for('instructions') }}">Instructions </a>
+                </li>
+            </ul>
+        </div>
+        <div class="nav-bg-fostrap">
+            <div class="navbar-fostrap"> <span></span> <span></span> <span></span> </div>
+            <a href="{{ url_for('home') }}" class="title-mobile">FaceSwap</a>
+        </div>
+    </nav>
+
+    <center>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                <div class="alert alert-{{ category }} flashmessage" style="width:890px;">
+                    {{ message }}
+                </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </center>
+
+    <div class="final-image">
+        <img src="{{ filepath }}" id="result">
+        <div>
+            <a href="{{ url_for('download_file', filename=filename) }}">
+                <button class="button">Download</button>
+            </a>
+            <form action="/compare" method="post">
+                <input type="text" name="img1" value ="{{ image1 }}" style="display:none">
+                <input type="text" name="img2" value="{{ image2 }}" style="display:none">
+                <input type="text" name="result" value="{{ filename }}" style="display:none">
+                <input type="submit" class="button" value="Compare">
+            </form>
+    
+
+        </div>
+        </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename ='index.js') }}"></script>
+</body>
+</html>

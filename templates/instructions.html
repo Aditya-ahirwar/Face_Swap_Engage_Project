@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'style.css') }}">
+    <!-- <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" /> -->
+    <title>Instructions</title>
+</head>
+<body>
+
+    <div style="margin-top: 20px;margin-bottom : 10px; text-align:center;">
+        <h2>FaceSwap WebApp : Make deepfake Images</h2>
+    </div>
+
+    <nav>
+        <div class="nav-fostrap">
+            <ul>
+                <li>
+                    <a href="{{ url_for('home') }}">FaceSwap</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('instructions') }}" id="active">Instructions </a>
+                </li>
+            </ul>
+        </div>
+        <div class="nav-bg-fostrap">
+            <div class="navbar-fostrap"> <span></span> <span></span> <span></span> </div>
+            <a href="{{ url_for('home') }}" class="title-mobile">FaceSwap</a>
+        </div>
+    </nav>
+    <div class="app_instructions">
+        <div class="overview">
+            <h1> 1. What this app does?</h1>
+            <p>This app takes two images as input and swap face of second image(Secondary image) with face of first image(main image).
+            <div class="example_images">
+                <img src="../static/Example_image1.jpg" alt="">
+                <img src="../static/Example_image2.jpg" alt="">
+                <img src="../static/Example_result.jpg" alt="">
+            </div>
+            </p>
+        </div>
+        <div class="instructions">
+            <h1>2. How to use?</h1>
+            <ul>
+                <li>Main Image : This face will be in final result</li>
+                <li>Secondary Image : This image's body will be in final result</li>
+                <li>Both images should have human face</li>
+                <li>Images should not be too dark or too bright</li>
+                <li>Clear Button : Clears all the selected files</li>
+                <li>Swap Button : Swap the faces</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename ='index.js') }}"></script>
+</body>
+</html>
